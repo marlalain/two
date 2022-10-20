@@ -5,6 +5,7 @@ export type Account = {
 	supportContact: {
 		name: string;
 		email: string;
+		phone: string;
 	};
 	salesOverview: {
 		uploads: number;
@@ -24,10 +25,26 @@ export const AccountOverview: React.FC<{ account: Account }> = ({
 
 	return (
 		<Meta>
-			<FontAwesomeIcon icon={faHardHat} />
-			Build your components here
+			<div>
+				<div>
+					<h1>Account Overview</h1>
+				</div>
+				<div>
+					<div>
+						<span>Your Feefo Support Contact</span>
+					</div>
+					<div>
+						<span>{account.supportContact.name.charAt(0)}</span>
+						<div>
+							<span>{account.supportContact.name}</span>
+							<span>{account.supportContact.email}</span>
+						</div>
+						<span>{account.supportContact.phone}</span>
+					</div>
+				</div>
+			</div>
 		</Meta>
-	)
-}
+	);
+};
 
 export default AccountOverview;
