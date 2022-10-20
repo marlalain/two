@@ -1,8 +1,8 @@
 import './App.css';
-import AccountOverview from './components/account-overview';
+import AccountOverview, {Account} from './components/account-overview';
 
 function App() {
-  const accountOverviewStub = {
+  const account: Account = {
     supportContact: {
       name: 'John Smith',
       email: 'john.smith@feefo.com'
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <AccountOverview data={accountOverviewStub}/>
+      <AccountOverview account={account}/>
     </div>
   );
 }
