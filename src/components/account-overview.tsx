@@ -1,5 +1,6 @@
 import React from 'react';
 import AccountOverviewHeader from './header/account-overview-header';
+import styled from 'styled-components';
 
 export type Account = {
 	supportContact: {
@@ -19,10 +20,18 @@ export type Account = {
 export const AccountOverview: React.FC<{ account: Account }> = ({
 	account,
 }) => {
+	const Overview = styled.div`
+		display: flex;
+		justify-content: space-around;
+		margin-top: 5em;
+		background-color: #f4f4f4;
+		padding: 2em 0em;
+	`;
+
 	return (
-		<div>
+		<Overview>
 			<AccountOverviewHeader account={account} />
-		</div>
+		</Overview>
 	);
 };
 
