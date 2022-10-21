@@ -4,9 +4,9 @@ import AccountOverview, { Account } from './components/account-overview';
 function App() {
 	const account: Account = {
 		supportContact: {
-			name: 'John Smith',
-			email: 'john.smith@feefo.com',
-			phone: '012 3450 6789',
+			name: 'Support',
+			email: 'support@feefo.com',
+			phone: '020 3362 4208',
 		},
 		salesOverview: {
 			uploads: 8,
