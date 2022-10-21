@@ -1,5 +1,7 @@
 import './App.css';
-import AccountOverview, { Account } from './components/account-overview';
+import AccountOverview, {
+	Account,
+} from './components/account-overview/account-overview';
 
 function App() {
 	const account: Account = {

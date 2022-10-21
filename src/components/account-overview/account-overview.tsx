@@ -22,6 +22,7 @@ export const AccountOverview: React.FC<{ account: Account }> = ({
 }) => {
 	const Overview = styled.div`
 		display: flex;
+		flex-direction: row;
 		justify-content: space-around;
 		margin-top: 5em;
 		background-color: #f4f4f4;
