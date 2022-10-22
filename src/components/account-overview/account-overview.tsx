@@ -1,6 +1,7 @@
 import React from 'react';
-import AccountOverviewHeader from './header/account-overview-header';
+import { default as Header } from './header/account-overview-header';
 import styled from 'styled-components';
+import { default as Main } from './main/account-overview-main';
 
 export type Account = {
 	supportContact: {
@@ -17,21 +18,22 @@ export type Account = {
 	};
 };
 
-export const AccountOverview: React.FC<{ account: Account }> = ({
-	account,
-}) => {
+export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => {
 	const Overview = styled.div`
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		margin-top: 5em;
 		background-color: #f4f4f4;
+		display: flex;
+		flex-direction: column;
+		gap: 3em;
+		margin-top: 5em;
 		padding: 2em 0em;
+		align-items: center;
+		justify-content: space-between;
 	`;
 
 	return (
 		<Overview>
-			<AccountOverviewHeader account={account} />
+			<Header account={account} />
+			<Main account={account} />
 		</Overview>
 	);
 };

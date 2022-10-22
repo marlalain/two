@@ -4,14 +4,12 @@ import styled from 'styled-components';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const AccountOverviewHeader: React.FC<{ account: Account }> = ({
-	account,
-}) => {
+export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account }) => {
 	const Header = styled.div`
 		display: flex;
 		flex-direction: row;
 		justify-content: space-around;
-		width: 45%;
+		width: 35%;
 	`;
 
 	const HeaderLeft = styled.div`
@@ -61,6 +59,8 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({
 	const IconProfilePlaceholder = styled.div`
 		background-color: #f9cf02;
 		color: #070600;
+		cursor: default;
+		user-select: none;
 		font-weight: bold;
 		font-size: 1.5em;
 		border-radius: 0.25em;
@@ -96,20 +96,14 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({
 			</HeaderLeft>
 			<HeaderRight>
 				<SupportContact>
-					<SupportContactHeader>
-						Your Feefo Support Contact
-					</SupportContactHeader>
+					<SupportContactHeader>Your Feefo Support Contact</SupportContactHeader>
 				</SupportContact>
 				<SupportProfile>
-					<IconProfilePlaceholder>
-						{account.supportContact.name.charAt(0)}
-					</IconProfilePlaceholder>
+					<IconProfilePlaceholder>{account.supportContact.name.charAt(0)}</IconProfilePlaceholder>
 
 					<SupportProfileLeft>
 						<div>
-							<SupportProfileName>
-								{account.supportContact.name}
-							</SupportProfileName>
+							<SupportProfileName>{account.supportContact.name}</SupportProfileName>
 						</div>
 
 						<SupportProfileBottom>
@@ -118,9 +112,7 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({
 								{account.supportContact.email}
 							</SupportProfileEmail>
 
-							<SupportProfilePhone>
-								{account.supportContact.phone}
-							</SupportProfilePhone>
+							<SupportProfilePhone>{account.supportContact.phone}</SupportProfilePhone>
 						</SupportProfileBottom>
 					</SupportProfileLeft>
 				</SupportProfile>
