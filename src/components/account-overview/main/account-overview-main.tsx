@@ -1,6 +1,8 @@
 import { Account } from '../account-overview';
 import styled from 'styled-components';
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleInfo, faUpload } from '@fortawesome/free-solid-svg-icons';
 
 const DataDisplay: React.FC<{
 	percentage: number;
@@ -90,9 +92,13 @@ const AccountOverviewMain: React.FC<{ account: Account }> = ({ account }) => {
 		<Main>
 			<Sales>
 				<TopBar>
-					<h2>Sales</h2>
+					<h2>
+						<FontAwesomeIcon fontSize="20px" color="#3eb1eb" icon={faUpload} /> Sales
+					</h2>
 
-					<span>i</span>
+					<span>
+						<FontAwesomeIcon fontSize="20px" color="#bfbbbb" icon={faCircleInfo} />
+					</span>
 				</TopBar>
 
 				<SalesText>
