@@ -18,18 +18,18 @@ export type Account = {
 	};
 };
 
-export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => {
-	const Overview = styled.div`
-		background-color: #f4f4f4;
-		display: flex;
-		flex-direction: column;
-		gap: 3em;
-		margin-top: 5em;
-		padding: 2em 0em;
-		align-items: center;
-		justify-content: space-between;
-	`;
+const Overview = styled.div`
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+	margin-top: 5em;
+	padding: 2em 0em;
+	align-items: center;
+	justify-content: space-between;
+`;
 
+export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => {
 	return (
 		<Overview>
 			<Header account={account} />
