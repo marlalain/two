@@ -10,6 +10,13 @@ const Header = styled.div`
 	justify-content: space-around;
 	width: 40%;
 `;
+
+const TitleWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+`;
+
 const Title = styled.h1`
 	color: #484446;
 	align-self: center;
@@ -22,7 +29,7 @@ const SupportContact = styled.div`
 `;
 
 const SupportContactHeader = styled.h3`
-	font-weight: bold; // FIXME: Not bold
+	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 1em;
 	color: #a9a7a7;
@@ -80,9 +87,9 @@ const SupportProfileBottom = styled.div`
 export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account }) => {
 	return (
 		<Header>
-			<div>
+			<TitleWrapper>
 				<Title>Account Overview</Title>
-			</div>
+			</TitleWrapper>
 			<div>
 				<SupportContact>
 					<SupportContactHeader>Your Feefo Support Contact</SupportContactHeader>
