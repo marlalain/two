@@ -23,6 +23,13 @@ const Heading = styled.div`
 	width: 100%;
 `;
 
+const SalesTitle = styled.h2`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 0.4em;
+`;
+
 const SalesText = styled.span`
 	color: #9b9898;
 `;
@@ -40,9 +47,9 @@ const Sales: FC<{ uploads: number; linesAttempted: number }> = ({ uploads, lines
 	return (
 		<Meta>
 			<Heading>
-				<h2>
-					<FontAwesomeIcon fontSize="20px" color="#3eb1eb" icon={faUpload} /> Sales
-				</h2>
+				<SalesTitle>
+					<FontAwesomeIcon fontSize="20px" color="#3eb1eb" icon={faUpload} /> <span>Sales</span>
+				</SalesTitle>
 
 				<span>
 					<FontAwesomeIcon fontSize="20px" color="#bfbbbb" icon={faCircleInfo} />
