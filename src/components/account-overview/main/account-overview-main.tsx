@@ -8,8 +8,9 @@ const Main = styled.div`
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0 0 1em 0.05em #e1e1e1; // TODO needs to be whiter
-	width: 45%; // FIXME
-	border-radius: 0.5em;
+	width: 45%;
+	border-radius: 0.3rem;
+	overflow: hidden;
 
 	@media (max-width: 1350px) {
 		width: 70%;
