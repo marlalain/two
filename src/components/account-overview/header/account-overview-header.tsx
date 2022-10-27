@@ -43,7 +43,7 @@ const SupportProfile = styled.div`
 	gap: 1em;
 `;
 
-const SupportProfileLeft = styled.div`
+const SupportProfileCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -73,8 +73,19 @@ const SupportProfileEmail = styled.div`
 	gap: 0.5em;
 `;
 
-const SupportProfilePhone = styled.span`
-	align-self: flex-end;
+const SupportProfileInteraction = styled.a`
+	color: #606060;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: dashed underline;
+	}
+
+	&:visited,
+	&:focus-visible {
+		color: #606060;
+		outline: 1px dashed #606060;
+	}
 `;
 
 const SupportProfileBottom = styled.div`
@@ -85,6 +96,12 @@ const SupportProfileBottom = styled.div`
 `;
 
 export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account }) => {
+	const formatPhone = (phone: string) => {
+		return `tel:+${phone.replace(' ', '')}`;
+	};
+
+	const phone = formatPhone(account.supportContact.phone);
+
 	return (
 		<Header>
 			<TitleWrapper>
@@ -97,7 +114,7 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account 
 				<SupportProfile>
 					<IconProfilePlaceholder>{account.supportContact.name.charAt(0)}</IconProfilePlaceholder>
 
-					<SupportProfileLeft>
+					<SupportProfileCard>
 						<div>
 							<SupportProfileName>{account.supportContact.name}</SupportProfileName>
 						</div>
@@ -105,12 +122,19 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account 
 						<SupportProfileBottom>
 							<SupportProfileEmail>
 								<FontAwesomeIcon icon={faEnvelope} />
-								{account.supportContact.email}
+								<SupportProfileInteraction
+									aria-label="Support Contact Email"
+									href={`mailto:${account.supportContact.email}`}
+								>
+									{account.supportContact.email}
+								</SupportProfileInteraction>
 							</SupportProfileEmail>
 
-							<SupportProfilePhone>{account.supportContact.phone}</SupportProfilePhone>
+							<SupportProfileInteraction aria-label="Support Contact Phone" href={phone}>
+								{account.supportContact.phone}
+							</SupportProfileInteraction>
 						</SupportProfileBottom>
-					</SupportProfileLeft>
+					</SupportProfileCard>
 				</SupportProfile>
 			</div>
 		</Header>

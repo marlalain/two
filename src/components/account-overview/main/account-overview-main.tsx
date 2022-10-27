@@ -32,11 +32,12 @@ const DataDisplay: React.FC<{
 }> = ({ percentage, text }) => {
 	const isPositive = percentage > 0;
 	const color = isPositive ? '#21ab55' : '#ab2132';
+	const textId = `${text.replace(' ', '-')}-text`;
 
 	return (
 		<Meta>
-			<Percentage color={color}>{`${percentage}%`}</Percentage>
-			<Text>{text}</Text>
+			<Percentage color={color} aria-describedby={textId}>{`${percentage}%`}</Percentage>
+			<Text id={textId}>{text}</Text>
 		</Meta>
 	);
 };
@@ -105,8 +106,8 @@ const AccountOverviewMain: React.FC<{ account: Account }> = ({ account }) => {
 				</TopBar>
 
 				<SalesText>
-					You had <Bold>{account.salesOverview.uploads} uploads</Bold> and{' '}
-					<Bold>{account.salesOverview.linesAttempted}</Bold> lines added.
+					You had <Bold role="mark">{account.salesOverview.uploads} uploads</Bold> and{' '}
+					<Bold role="mark">{account.salesOverview.linesAttempted}</Bold> lines added.
 				</SalesText>
 			</Sales>
 
