@@ -49,7 +49,7 @@ const Overview = styled.div`
 
 const accountSchema = z.object({
 	supportContact: z.object({
-		name: z.string(),
+		name: z.string().min(0).max(20),
 		email: z.string().email(),
 		phone: z.string().regex(/^\d{3} \d{4} \d{4}$/, 'Phone number must be in the format 000 0000 0000'),
 	}),
