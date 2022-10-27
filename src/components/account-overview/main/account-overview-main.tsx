@@ -40,7 +40,7 @@ const BottomPanel = styled.div`
 `;
 
 const AccountOverviewMain: React.FC<{ overview: SalesOverview }> = ({ overview }) => {
-	const uploadSuccess = (overview.successfulUploads / overview.uploads) * 100; // TODO: sanitize
+	const uploadSuccess = (overview.successfulUploads / overview.uploads) * 100;
 	const linesSaved = (overview.linesSaved / overview.linesAttempted) * 100;
 
 	return (
