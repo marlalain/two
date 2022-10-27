@@ -27,10 +27,14 @@ const SalesText = styled.span`
 	color: #9b9898;
 `;
 
-const Bold = styled.span`
+const BoldText = styled.span`
 	color: #5d5d5d;
 	font-weight: 600;
 `;
+
+const Bold = (props: { children: any }) => {
+	return <BoldText role="mark">{props.children}</BoldText>;
+};
 
 const Sales: FC<{ uploads: number; linesAttempted: number }> = ({ uploads, linesAttempted }) => {
 	return (
@@ -46,7 +50,7 @@ const Sales: FC<{ uploads: number; linesAttempted: number }> = ({ uploads, lines
 			</Heading>
 
 			<SalesText>
-				You had <Bold role="mark">{uploads} uploads</Bold> and <Bold role="mark">{linesAttempted}</Bold> lines added.
+				You had <Bold>{uploads} uploads</Bold> and <Bold>{linesAttempted}</Bold> lines added.
 			</SalesText>
 		</Meta>
 	);
