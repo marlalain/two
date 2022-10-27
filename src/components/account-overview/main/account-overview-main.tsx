@@ -1,4 +1,4 @@
-import { Account } from '../account-overview';
+import { SalesOverview } from '../account-overview';
 import styled from 'styled-components';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -105,9 +105,9 @@ const Bold = styled.span`
 	font-weight: 600;
 `;
 
-const AccountOverviewMain: React.FC<{ account: Account }> = ({ account }) => {
-	const uploadSuccess = (account.salesOverview.successfulUploads / account.salesOverview.uploads) * 100;
-	const linesSaved = (account.salesOverview.linesSaved / account.salesOverview.linesAttempted) * 100;
+const AccountOverviewMain: React.FC<{ overview: SalesOverview }> = ({ overview }) => {
+	const uploadSuccess = (overview.successfulUploads / overview.uploads) * 100; // TODO: sanitize
+	const linesSaved = (overview.linesSaved / overview.linesAttempted) * 100;
 
 	return (
 		<Main>
@@ -123,8 +123,8 @@ const AccountOverviewMain: React.FC<{ account: Account }> = ({ account }) => {
 				</TopBar>
 
 				<SalesText>
-					You had <Bold role="mark">{account.salesOverview.uploads} uploads</Bold> and{' '}
-					<Bold role="mark">{account.salesOverview.linesAttempted}</Bold> lines added.
+					You had <Bold role="mark">{overview.uploads} uploads</Bold> and{' '}
+					<Bold role="mark">{overview.linesAttempted}</Bold> lines added.
 				</SalesText>
 			</Sales>
 

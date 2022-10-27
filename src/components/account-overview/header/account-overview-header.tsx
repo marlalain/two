@@ -1,5 +1,5 @@
 import React from 'react';
-import { Account } from '../account-overview';
+import { SupportContact } from '../account-overview';
 import styled from 'styled-components';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -37,7 +37,7 @@ const Title = styled.h1`
 	font-weight: 400;
 `;
 
-const SupportContact = styled.div`
+const Contact = styled.div`
 	display: flex;
 	flex-direction: row;
 
@@ -46,14 +46,14 @@ const SupportContact = styled.div`
 	}
 `;
 
-const SupportContactHeader = styled.h3`
+const ContactHeader = styled.h3`
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 1em;
 	color: #a9a7a7;
 `;
 
-const SupportProfile = styled.div`
+const Profile = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -65,7 +65,7 @@ const SupportProfile = styled.div`
 	}
 `;
 
-const SupportProfileCard = styled.div`
+const ProfileCard = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -73,7 +73,7 @@ const SupportProfileCard = styled.div`
 	align-items: flex-start;
 `;
 
-const IconProfilePlaceholder = styled.div`
+const ProfilePlaceholder = styled.div`
 	background-color: #f9cf02;
 	color: #070600;
 	cursor: default;
@@ -88,18 +88,18 @@ const IconProfilePlaceholder = styled.div`
 	}
 `;
 
-const SupportProfileName = styled.span`
+const ProfileName = styled.span`
 	font-weight: 700;
 `;
 
-const SupportProfileEmail = styled.div`
+const ProfileEmail = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	gap: 0.5em;
 `;
 
-const SupportProfileInteraction = styled.a`
+const ProfileInteraction = styled.a`
 	color: #606060;
 	text-decoration: none;
 
@@ -114,19 +114,19 @@ const SupportProfileInteraction = styled.a`
 	}
 `;
 
-const SupportProfileBottom = styled.div`
+const BottomSection = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	gap: 2em;
 `;
 
-export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account }) => {
+export const AccountOverviewHeader: React.FC<{ contact: SupportContact }> = ({ contact }) => {
 	const formatPhone = (phone: string) => {
 		return `tel:+${phone.replace(' ', '')}`;
 	};
 
-	const phone = formatPhone(account.supportContact.phone);
+	const phone = formatPhone(contact.phone);
 
 	return (
 		<Header>
@@ -135,35 +135,32 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account 
 			</TitleWrapper>
 
 			<div>
-				<SupportContact>
-					<SupportContactHeader>Your Feefo Support Contact</SupportContactHeader>
-				</SupportContact>
+				<Contact>
+					<ContactHeader>Your Feefo Support Contact</ContactHeader>
+				</Contact>
 
-				<SupportProfile>
-					<IconProfilePlaceholder>{account.supportContact.name.charAt(0)}</IconProfilePlaceholder>
+				<Profile>
+					<ProfilePlaceholder>{contact.name.charAt(0)}</ProfilePlaceholder>
 
-					<SupportProfileCard>
+					<ProfileCard>
 						<div>
-							<SupportProfileName>{account.supportContact.name}</SupportProfileName>
+							<ProfileName>{contact.name}</ProfileName>
 						</div>
 
-						<SupportProfileBottom>
-							<SupportProfileEmail>
+						<BottomSection>
+							<ProfileEmail>
 								<FontAwesomeIcon icon={faEnvelope} />
-								<SupportProfileInteraction
-									aria-label="Support Contact Email"
-									href={`mailto:${account.supportContact.email}`}
-								>
-									{account.supportContact.email}
-								</SupportProfileInteraction>
-							</SupportProfileEmail>
+								<ProfileInteraction aria-label="Support Contact Email" href={`mailto:${contact.email}`}>
+									{contact.email}
+								</ProfileInteraction>
+							</ProfileEmail>
 
-							<SupportProfileInteraction aria-label="Support Contact Phone" href={phone}>
-								{account.supportContact.phone}
-							</SupportProfileInteraction>
-						</SupportProfileBottom>
-					</SupportProfileCard>
-				</SupportProfile>
+							<ProfileInteraction aria-label="Support Contact Phone" href={phone}>
+								{contact.phone}
+							</ProfileInteraction>
+						</BottomSection>
+					</ProfileCard>
+				</Profile>
 			</div>
 		</Header>
 	);

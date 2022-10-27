@@ -4,18 +4,22 @@ import styled from 'styled-components';
 import { default as Main } from './main/account-overview-main';
 
 export type Account = {
-	supportContact: {
-		name: string;
-		email: string;
-		phone: string;
-	};
-	salesOverview: {
-		uploads: number;
-		successfulUploads: number;
-		linesAttempted: number;
-		linesSaved: number;
-		lastUploadDate: number;
-	};
+	supportContact: SupportContact;
+	salesOverview: SalesOverview;
+};
+
+export type SupportContact = {
+	name: string;
+	email: string;
+	phone: string;
+};
+
+export type SalesOverview = {
+	uploads: number;
+	successfulUploads: number;
+	linesAttempted: number;
+	linesSaved: number;
+	lastUploadDate: number;
 };
 
 const CenterWrapper = styled.div`
@@ -37,8 +41,8 @@ export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => 
 	return (
 		<CenterWrapper>
 			<Overview>
-				<Header account={account} />
-				<Main account={account} />
+				<Header contact={account.supportContact} />
+				<Main overview={account.salesOverview} />
 			</Overview>
 		</CenterWrapper>
 	);
