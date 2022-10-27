@@ -8,19 +8,8 @@ const Header = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	width: 35%;
+	width: 40%;
 `;
-
-const HeaderLeft = styled.div`
-	display: flex;
-`;
-
-const HeaderRight = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-`;
-
 const Title = styled.h1`
 	color: #484446;
 	align-self: center;
@@ -91,10 +80,10 @@ const SupportProfileBottom = styled.div`
 export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account }) => {
 	return (
 		<Header>
-			<HeaderLeft>
+			<div>
 				<Title>Account Overview</Title>
-			</HeaderLeft>
-			<HeaderRight>
+			</div>
+			<div>
 				<SupportContact>
 					<SupportContactHeader>Your Feefo Support Contact</SupportContactHeader>
 				</SupportContact>
@@ -116,7 +105,7 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account 
 						</SupportProfileBottom>
 					</SupportProfileLeft>
 				</SupportProfile>
-			</HeaderRight>
+			</div>
 		</Header>
 	);
 };
