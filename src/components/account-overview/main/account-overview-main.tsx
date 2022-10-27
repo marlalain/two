@@ -46,8 +46,20 @@ const Main = styled.div`
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0 0 1em 0.05em #e1e1e1; // TODO needs to be whiter
-	width: 40%; // FIXME
+	width: 45%; // FIXME
 	border-radius: 0.5em;
+
+	@media (max-width: 1350px) {
+		width: 70%;
+	}
+
+	@media (max-width: 1024px) {
+		width: 90%;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 const TopBar = styled.div`
@@ -65,6 +77,11 @@ const BottomPanel = styled.div`
 	gap: 2px;
 	background-color: #f3f3f3;
 	border-top: 2px solid #f3f3f3;
+
+	@media (max-width: 400px) {
+		flex-direction: column;
+		background-color: #fff;
+	}
 `;
 
 const Sales = styled.div`

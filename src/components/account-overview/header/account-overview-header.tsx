@@ -8,7 +8,21 @@ const Header = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	width: 40%;
+	width: 50%;
+
+	@media (max-width: 1350px) {
+		width: 70%;
+	}
+
+	@media (max-width: 1024px) {
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		align-items: center;
+		gap: 2em;
+	}
 `;
 
 const TitleWrapper = styled.div`
@@ -26,6 +40,10 @@ const Title = styled.h1`
 const SupportContact = styled.div`
 	display: flex;
 	flex-direction: row;
+
+	@media (max-width: 400px) {
+		justify-content: center;
+	}
 `;
 
 const SupportContactHeader = styled.h3`
@@ -41,6 +59,10 @@ const SupportProfile = styled.div`
 	justify-content: space-around;
 	color: #606060;
 	gap: 1em;
+
+	@media (max-width: 400px) {
+		flex-direction: column;
+	}
 `;
 
 const SupportProfileCard = styled.div`
@@ -60,6 +82,10 @@ const IconProfilePlaceholder = styled.div`
 	font-size: 1.5em;
 	border-radius: 0.25em;
 	padding: 0.55em 0.85em;
+
+	@media (max-width: 400px) {
+		align-self: center;
+	}
 `;
 
 const SupportProfileName = styled.span`
@@ -107,10 +133,12 @@ export const AccountOverviewHeader: React.FC<{ account: Account }> = ({ account 
 			<TitleWrapper>
 				<Title>Account Overview</Title>
 			</TitleWrapper>
+
 			<div>
 				<SupportContact>
 					<SupportContactHeader>Your Feefo Support Contact</SupportContactHeader>
 				</SupportContact>
+
 				<SupportProfile>
 					<IconProfilePlaceholder>{account.supportContact.name.charAt(0)}</IconProfilePlaceholder>
 

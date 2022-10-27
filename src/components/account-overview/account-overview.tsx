@@ -18,23 +18,29 @@ export type Account = {
 	};
 };
 
+const CenterWrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+`;
+
 const Overview = styled.div`
-	background-color: #f4f4f4;
 	display: flex;
 	flex-direction: column;
 	gap: 3em;
-	margin-top: 5em;
-	padding: 2em 0em;
 	align-items: center;
-	justify-content: space-between;
+	width: 100vw;
 `;
 
 export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => {
 	return (
-		<Overview>
-			<Header account={account} />
-			<Main account={account} />
-		</Overview>
+		<CenterWrapper>
+			<Overview>
+				<Header account={account} />
+				<Main account={account} />
+			</Overview>
+		</CenterWrapper>
 	);
 };
 
