@@ -1,7 +1,5 @@
 import './App.css';
-import AccountOverview, {
-	Account,
-} from './components/account-overview/account-overview';
+import AccountOverview, { Account } from './components/account-overview/account-overview';
 
 function App() {
 	const account: Account = {
@@ -19,11 +17,7 @@ function App() {
 		},
 	};
 
-	return (
-		<div className="App">
-			<AccountOverview account={account} />
-		</div>
-	);
+	return <AccountOverview account={account} />;
 }
 
 export default App;

@@ -2,6 +2,7 @@ import React from 'react';
 import { default as Header } from './header/account-overview-header';
 import styled from 'styled-components';
 import { default as Main } from './main/account-overview-main';
+import { z } from 'zod';
 
 export type Account = {
 	supportContact: SupportContact;
@@ -29,6 +30,15 @@ const CenterWrapper = styled.div`
 	height: 95vh;
 `;
 
+const CenterError = styled(CenterWrapper)`
+	flex-direction: column;
+`;
+
+const ErrorTitle = styled.h1`
+	font-size: 2rem;
+	color: #ff0000;
+`;
+
 const Overview = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -37,7 +47,41 @@ const Overview = styled.div`
 	width: 100vw;
 `;
 
+const accountSchema = z.object({
+	supportContact: z.object({
+		name: z.string(),
+		email: z.string().email(),
+		phone: z.string().regex(/^\d{3} \d{4} \d{4}$/, 'Phone number must be in the format 000 0000 0000'),
+	}),
+	salesOverview: z.object({
+		uploads: z.number().nonnegative(),
+		successfulUploads: z.number().nonnegative(),
+		linesAttempted: z.number().nonnegative(),
+		linesSaved: z.number().nonnegative(),
+		lastUploadDate: z.number().nonnegative(),
+	}),
+});
+
 export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => {
+	const accountParse = accountSchema.safeParse(account);
+
+	if (!accountParse.success) {
+		const errors = accountParse.error.issues.map((issue) => issue.message);
+		return (
+			<CenterError>
+				<ErrorTitle>Invalid Account</ErrorTitle>
+
+				<p>
+					{errors.map((error) => (
+						<>
+							<span>{error}</span> <br />
+						</>
+					))}
+				</p>
+			</CenterError>
+		);
+	}
+
 	return (
 		<CenterWrapper>
 			<Overview>
