@@ -2,11 +2,13 @@
 
 ## Design and Implementation
 
+### Design
+
 ![Design](./design.png)
-*Design provided*
+
+### Implementation
 
 ![Implementation](./ui.png)
-*Implementation*
 
 ## Setup
 
