@@ -28,7 +28,7 @@ const DataDisplay: React.FC<{
 	text: string;
 }> = ({ percentage, text }) => {
 	const isPositive = percentage > 0;
-	const color = isPositive ? '#21ab55' : '#ab2132';
+	const color = isPositive ? '#21ab55' : '#f65468';
 	const textId = `${text.replace(' ', '-')}-text`;
 
 	return (
