@@ -72,10 +72,10 @@ export const AccountOverview: React.FC<{ account: Account }> = ({ account }) => 
 				<ErrorTitle>Invalid Account</ErrorTitle>
 
 				<p>
-					{errors.map((error) => (
-						<>
-							<span>{error}</span> <br />
-						</>
+					{errors.map((error, idx) => (
+						<span key={idx}>
+							{error} <br />
+						</span>
 					))}
 				</p>
 			</CenterError>
